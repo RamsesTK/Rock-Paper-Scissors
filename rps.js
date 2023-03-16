@@ -1,5 +1,3 @@
-const playerChoice = 'rock'
-
 function getComputerChoice(){
     choice =  Math.floor(Math.random()*3);
     if(choice === 0)
@@ -12,9 +10,6 @@ function getComputerChoice(){
     return choice
 };
 
-// function getPlayerChoice(){
-//     return playerChoice;
-// }
 
 function playRound(playerChoice,computerChoice){
     if (playerChoice.toLowerCase() === 'rock'){
@@ -56,33 +51,32 @@ function playRound(playerChoice,computerChoice){
 function game(){
     let yourScore = 0;
     let computerScore = 0;
-    let isWinner = false;
-    // isWinner === false
+
+    
     while(true){
+        playerChoice = prompt("What do you chose? [ROCK], [PAPER] OR [SCISSORS]")
         result = playRound(playerChoice, getComputerChoice());
-        console.log(result);
-        if(result.includes("win"))
+
+        if(result.includes("win")){
             ++yourScore;
-        else if(result.includes("lose"))
+            window.alert(`${result}\nYOU:${yourScore} COMPUTER: ${computerScore}`);}
+        else if(result.includes("lose")){
             ++computerScore;
-        
+            window.alert(`${result}\nYOU:${yourScore} COMPUTER: ${computerScore}`);}
+        else
+            window.alert(`TIE!\nYOU:${yourScore} COMPUTER: ${computerScore}`);
+
         if (computerScore === 5){
-            console.log('COMPUTER WON, GLORY TO JAVASCRIPT');
+            window.alert('COMPUTER WON, GLORY TO JAVASCRIPT');
             break;}
-            // isWinner = true;}
-            // break;
+
         else if(yourScore === 5){
-            console.log('YOU WON, GLORY TO HUMANITY');
+            window.alert('YOU WON, GLORY TO HUMANITY');
             break;}
-        // your code here!
+
      }
 
 }
 
 
-
 game()
-// for(i = 0;i <3; i++){
-//     console.log(
-//         playRound(playerChoice, getComputerChoice())
-//         );}
